@@ -37,6 +37,15 @@ Sim: a interface que roda **só no navegador** pode ficar online. O GitHub não 
 
 Repositório **público** + Pages gratuito costuma ser o caminho mais simples. O backend `server.js` / `npm run web` **não** roda no Pages; em produção o app usa sempre o processamento no navegador.
 
+## Criar o repositório no GitHub (terminal)
+
+1. Instale e faça login uma vez: `gh auth login` (GitHub CLI).
+2. Na pasta do projeto: `.\push-github.ps1`  
+   (ou `.\push-github.ps1 -RepoName outro-nome` se `pdf-scanner` já existir).
+
+Sem o `gh`, crie o repositório vazio no site do GitHub e rode:
+`git remote add origin https://github.com/SEU_USUARIO/SEU_REPO.git` e `git push -u origin main`.
+
 ## Requisitos
 
 - **Só o HTML / Pages:** navegador recente + rede para CDN
