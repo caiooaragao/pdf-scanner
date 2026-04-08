@@ -2,18 +2,27 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="0; url=public/index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>PDF Scanner</title>
     <script>
-      location.replace(
-        new URL("public/index.html", window.location.href).href
-      );
+      (function () {
+        var u = new URL(window.location.href);
+        var p = u.pathname;
+        if (p.endsWith("/")) {
+          u.pathname = p + "public/index.html";
+        } else if (/\.html$/i.test(p)) {
+          u.pathname = p.replace(/\/[^/]+$/, "/public/index.html");
+        } else {
+          u.pathname = p + "/public/index.html";
+        }
+        location.replace(u.href);
+      })();
     </script>
+    <noscript>
+      <meta http-equiv="refresh" content="0; url=public/index.html" />
+    </noscript>
   </head>
   <body>
-    <p>
-      <a href="public/index.html">Abrir PDF Scanner</a> (redirecionamento automático)
-    </p>
+    <p><a href="public/index.html">Abrir PDF Scanner</a></p>
   </body>
 </html>
