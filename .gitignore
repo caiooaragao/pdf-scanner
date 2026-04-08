@@ -1,0 +1,11 @@
+node_modules/
+digitalizados/
+.tmp_scan/
+.env
+*.log
+.DS_Store
+Thumbs.db
+
+# PDFs e capturas locais (não versionar)
+*.pdf
+*_page1.png
